@@ -22,6 +22,7 @@ export function SearchForm() {
     const onSubmit = (values) => {
         dispatch(getHotelsAsync(values));
     }
+    
     useEffect(() => {
         dispatch(getDestinationsAsync());
     }, [dispatch]);
@@ -31,16 +32,19 @@ export function SearchForm() {
                 onSubmit={onSubmit}
                 render={({ handleSubmit }) => {
                     return (
-                        <Box component="form" sx={{ margin: '30px 0' }} onSubmit={handleSubmit}>
+                        <Box component="form" sx={{ margin: '30px 0'}} onSubmit={handleSubmit}>
                             <Grid container spacing={2}>
                                 <Grid item xs={3}>
-                                    <Field disabled={destinationLoading} name="destination" label="Destination" options={destinationItems} component={Select}/>
+                                    <Field disabled={destinationLoading}  name="destination" label="Destination" options={destinationItems} component={Select}/>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={2}>
                                     <Field name="check_in" label="Check in" component={DataPicker}/>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={2}>
                                     <Field name="check_out" label="Check out" component={DataPicker}/>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Field name="adult" label="Adults" component={TextField}/>
                                 </Grid>
                                 <Grid item xs={2}>
                                     <Field name="children" label="Children" component={TextField}/>

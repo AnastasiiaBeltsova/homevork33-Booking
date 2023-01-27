@@ -4,10 +4,10 @@ import ButtonMUI from "@mui/material/Button"
 
 export function Button(props) {
     const {
-        disabled, type, children, to, variant
+        disabled, type, children, to, variant, href
     } = props;
     return (
-        <ButtonMUI disabled={disabled} type={type} variant={variant}>
+        <ButtonMUI disabled={disabled} type={type} variant={variant} href={href}>
             {
                 to 
                     ? <Link to={to}>{children}</Link>
@@ -18,5 +18,5 @@ export function Button(props) {
 }
 
 Button.defaultProps = {
-    variant: "contained",
+    variant: "contained"
 }
